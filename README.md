@@ -36,21 +36,39 @@ The environment currently consists of an Azure-based infrastructure containing a
 ### Current architecture
 
 ```text
-        Microsoft Azure
-       │
- Resource Group
-    Novexus
-       │
-       ├───────────────────────────────┐
-       │                               │
-       ▼                               ▼
-catenicus VNet              vnet-southafricanorth-1
-       │                               │
-       ▼                               ▼
-10.0.1.0/24                   172.16.0.0/24
-       │                               │
-       ▼                               ▼
-Novexusendpoint                  vm-dc01
- Windows 11                    Windows Server
-       │                               │
- Entra ID / Intune              AD DS / DNS / AD CS
+           Microsoft Azure
+              │
+       Resource Group
+          Novexus
+              │
+      ┌───────┴──────────────────────┐
+      │                              │
+      ▼                              ▼
+catenicus VNet             vnet-southafricanorth-1
+10.0.0.0/16                       │
+      │                            ▼
+      │                    snet-southafricanorth-1
+      │                         172.16.0.0/24
+      │                            │
+      │                            ▼
+      │                         vm-dc01
+      │                    Windows Server 2025
+      │                            │
+      │                     ┌──────┼──────┐
+      │                     │      │      │
+      │                   AD DS   DNS   AD CS
+      │
+      ├── default
+      │   10.0.0.0/24
+      │
+      └── snet-southafricanorth-2
+          10.0.1.0/24
+               │
+               ▼
+        Novexusendpoint
+          Windows 11
+        Enterprise 25H2
+               │
+        Target: Entra ID
+             + Intune
+-Network connectivity: catenicus and vnet-southafricanorth-1 are currently separate VNets with no VNet peering configured.
