@@ -57,3 +57,44 @@ The Windows 11 endpoint is connected to:
 catenicus
 └── snet-southafricanorth-2
     └── 10.0.1.0/24
+## 2. vnet-southafricanorth-1
+
+This virtual network contains the existing Windows Server infrastructure.
+
+Property	Configuration
+VNet	vnet-southafricanorth-1
+Region	South Africa North
+Subnet	snet-southafricanorth-1
+Subnet address	172.16.0.0/24
+
+Note: The VNet address space will be documented after it has been verified from the Azure configuration.
+
+The existing server is connected to:
+
+vnet-southafricanorth-1
+└── snet-southafricanorth-1
+    └── 172.16.0.0/24
+        └── vm-dc01
+Network Relationship
+
+The two virtual networks are currently not peered.
+
+catenicus
+10.0.0.0/16
+    │
+    └── snet-southafricanorth-2
+        10.0.1.0/24
+            │
+            └── Novexusendpoint
+
+
+vnet-southafricanorth-1
+    │
+    └── snet-southafricanorth-1
+        172.16.0.0/24
+            │
+            └── vm-dc01
+
+There is currently no direct VNet peering connection between catenicus and vnet-southafricanorth-1.
+
+Any future connectivity between these networks will be treated as a deliberate architectural change and documented accordingly.
