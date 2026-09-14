@@ -263,27 +263,6 @@ Current cost-management measures include:
 - Auto-shutdown configured for the endpoint at 22:00
 - Deallocating resources when they are no longer required
 
-> **Important:** Azure resources can continue to incur charges when they are running. Auto-shutdown provides an additional safeguard, but resources should still be manually stopped/deallocated when the lab is not being used.
-
----
-
-# Resource Tagging
-
-The Windows 11 endpoint and associated resources use tags to identify the purpose and ownership of the environment.
-
-Current tags include:
-
-| Tag | Value |
-|---|---|
-| Project | `Intune-Lab` |
-| Environment | `Lab` |
-| Role | `Endpoint` |
-| Owner | `Lesley` |
-
-Resource tagging makes it easier to identify lab resources and distinguish them from other Azure resources.
-
----
-
 # Deployment Troubleshooting
 
 The initial deployment of `Novexusendpoint` failed during network interface creation.
@@ -382,22 +361,3 @@ The VM initially reported that the Azure VM Agent was not ready. After allowing 
 | Microsoft Entra ID enrollment | ⏳ Planned |
 | Microsoft Intune enrollment | ⏳ Planned |
 
----
-
-# Next Steps
-
-The Azure infrastructure provides the foundation for the remaining phases of the lab.
-
-Planned next steps include:
-
-1. Configure Microsoft Entra ID for the lab
-2. Prepare the Windows 11 endpoint for cloud management
-3. Entra join the Windows 11 endpoint
-4. Enroll the endpoint into Microsoft Intune
-5. Create device configuration policies
-6. Deploy applications through Intune
-7. Configure compliance policies
-8. Configure endpoint security policies
-9. Integrate Microsoft Defender
-10. Test and document endpoint-management scenarios
-11. Document troubleshooting and lessons learned
