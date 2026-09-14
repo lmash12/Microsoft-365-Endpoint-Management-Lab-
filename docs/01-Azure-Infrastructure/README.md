@@ -359,5 +359,17 @@ The VM initially reported that the Azure VM Agent was not ready. After allowing 
 | Windows 11 VM Agent | ✅ Ready |
 | VNet peering | Not configured |
 | Microsoft Entra ID enrollment | ⏳ Planned |
+## Windows 11 Endpoint Baseline
+
+Before introducing Microsoft Entra ID or Microsoft Intune, the endpoint
+was verified as a standalone Windows device.
+
+```text
+Hostname:          Novexusendpoint
+Local account:     azureuser
+IPv4:              10.0.1.4
+AzureAdJoined:     No
+DomainJoined:      No
+WorkplaceJoined:   No
 | Microsoft Intune enrollment | ⏳ Planned |
 
