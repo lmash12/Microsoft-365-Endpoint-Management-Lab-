@@ -73,6 +73,7 @@ catenicus VNet             vnet-southafricanorth-1
              + Intune
 -Network connectivity: catenicus and vnet-southafricanorth-1 are currently separate VNets with no VNet peering configured.
 
+```
 ## Microsoft Defender Antivirus Baseline
 
 ### Objective
