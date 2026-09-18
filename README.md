@@ -72,3 +72,51 @@ catenicus VNet             vnet-southafricanorth-1
         Target: Entra ID
              + Intune
 -Network connectivity: catenicus and vnet-southafricanorth-1 are currently separate VNets with no VNet peering configured.
+
+## Microsoft Defender Antivirus Baseline
+
+### Objective
+
+Apply and verify Microsoft Defender Antivirus settings on the managed Windows endpoint using Microsoft Intune.
+
+### Policy
+
+* **Policy name:** Novexus - Defender Antivirus Baseline
+* **Target device:** Novexusendpoint
+* **Deployment status:** Success
+* **Reported errors:** 0
+* **Reported conflicts:** 0
+
+### Endpoint Verification
+
+The following PowerShell commands were used to verify Defender Antivirus status:
+
+```powershell
+Get-MpComputerStatus |
+Select-Object AMServiceEnabled,
+              AntivirusEnabled,
+              RealTimeProtectionEnabled,
+              AMRunningMode
+```
+
+Results confirmed that the Defender service, antivirus, and real-time protection were enabled, with the antivirus running in Normal mode.
+
+```powershell
+Get-MpPreference |
+Select-Object DisableRealtimeMonitoring,
+              MAPSReporting,
+              EnableNetworkProtection
+```
+
+Real-time monitoring was not disabled. MAPS reporting was set to `2`, while network protection was set to `0`.
+
+### Result
+
+Intune reported successful deployment of the Defender Antivirus baseline to Novexusendpoint. Endpoint checks confirmed that Defender Antivirus and real-time protection were enabled.
+
+### Evidence
+
+* Intune policy deployment status
+* Intune device-level policy report
+
+
