@@ -84,3 +84,51 @@ before deploying dependent resources.
 The failure also demonstrated the value of checking
 deployment operations rather than relying only on the high-level
 deployment status.
+
+## BitLocker Compliance Reporting Issue
+
+### Issue
+
+The `Novexusendpoint` Windows 11 device was reported as noncompliant by the Intune `baseline compliance` policy, with BitLocker identified as the failing setting.
+
+### Investigation
+
+Local BitLocker checks showed that the OS volume was fully encrypted and protection was enabled:
+
+* Encryption percentage: 100%
+* Volume status: Fully Encrypted
+* Protection status: On
+
+Windows MDM event logs also contained BitLocker CSP warnings:
+
+* Event ID 2900: OS volume reported as noncompliant.
+* Event ID 2914: OS drive reported as not protected.
+
+These warnings were recorded earlier in the troubleshooting process.
+
+### Resolution and Verification
+
+The VM was shut down and started again.
+
+After the restart, the Intune per-setting report showed Secure Boot, Code Integrity, and BitLocker as compliant.
+
+The device-level report for `Novexusendpoint` subsequently showed:
+
+* Policy compliance status: Compliant
+* Compliant devices: 1
+* Noncompliant devices: 0
+* Total devices: 1
+
+### Outcome
+
+The device-level compliance report confirmed that `Novexusendpoint` was compliant with the `baseline compliance` policy.
+
+The exact reason the reported status changed after the VM restart was not independently established.
+
+### Evidence
+
+* Intune per-setting compliance report
+* Intune device-level compliance report
+* Windows BitLocker status checks
+
+
