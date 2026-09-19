@@ -25,7 +25,7 @@ The Intune Settings Catalog policy was configured with:
 
 * **Setting:** Interactive logon: Machine inactivity limit
 * **Value:** 900 seconds
-* **Assignment:** Endpoint device group
+* **Assignment:** novexus windows device
 
 The policy was created and saved in Microsoft Intune.
 
