@@ -85,6 +85,8 @@ The failure also demonstrated the value of checking
 deployment operations rather than relying only on the high-level
 deployment status.
 
+```
+
 ## BitLocker Compliance Reporting Issue
 
 ### Issue
