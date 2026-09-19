@@ -42,6 +42,21 @@ The policy is configured as Enabled, but Intune reported Not applicable for the 
 
 Removable-storage write protection has not been verified as enforced. No functional write-blocking test has been performed.
 
+## Deployment Result
+
+The Intune report for `Novexusendpoint` initially showed
+Not applicable. On 2026-09-19, the status changed to Pending.
+
+The policy has not yet been confirmed as successfully applied.
+
+| Latest status | Count |
+|---|---:|
+| Pending | 1 |
+| Not applicable | 0 |
+| Success | 0 |
+| Error | 0 |
+| Conflict | 0 |
+
 ## Next Steps
 
 Check back after restarting the virtual machine
